@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useRef } from 'react';
+import { sendEmail } from '../services/emailService';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,18 +24,7 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      const response = await fetch('http://localhost:5000/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send email');
-      }
-
+      await sendEmail(formData);
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {

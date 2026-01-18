@@ -8,7 +8,50 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+dist# env/secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# dependencies
+node_modules/
+
+# builds & caches
+dist/
+build/
+coverage/
+.nyc_output/
+.cache/
+.turbo/
+.next/
+parcel-cache/
+.pnpm-store/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# python backend (if present)
+*.pyc
+__pycache__/
+.python-version
+.venv/
+.envrc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
 dist-ssr
 *.local
 
