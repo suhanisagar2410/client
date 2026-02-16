@@ -25,7 +25,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="relative min-h-[calc(100vh-6rem)] overflow-hidden"
+      className="relative overflow-hidden"
       style={{ overflow: 'hidden' }}
       onMouseMove={handleMouseMove}
     >
@@ -49,10 +49,10 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            Full-stack developer
+            Full Stack Developer
           </motion.p>
           <motion.h1
-            className="hero-name-typing text-4xl md:text-6xl font-semibold tracking-tight"
+            className="hero-name-shimmer text-4xl md:text-6xl font-semibold tracking-tight"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -65,7 +65,8 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            Crafting high-end digital products with cinematic motion, resilient engineering, and calm clarity.
+            1.5+ years delivering production-grade applications, translating ideas into scalable systems with clean
+            architecture and optimized performance.
           </motion.p>
           <motion.div
             className="flex flex-wrap items-center justify-center gap-4"
@@ -93,11 +94,11 @@ export const Hero = () => {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs uppercase tracking-[0.3em] text-slate-400">
-              <span>Product strategy</span>
+              <span>Scalable architecture</span>
               <span className="text-slate-600">•</span>
-              <span>Experience design</span>
+              <span>Performance optimization</span>
               <span className="text-slate-600">•</span>
-              <span>Full-stack delivery</span>
+              <span>Production delivery</span>
             </div>
           </motion.div>
         </div>

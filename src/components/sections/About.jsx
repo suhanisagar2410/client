@@ -1,5 +1,5 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import profileImage from '../../assets/profie.png';
 
 export const About = () => {
@@ -9,29 +9,10 @@ export const About = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
 
-  const [stats, setStats] = useState({ years: 0, projects: 0 });
-
-  useEffect(() => {
-    if (!isInView) return;
-    let frame = 0;
-    const duration = 1500;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const progress = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setStats({
-        years: Number((1.5 * eased).toFixed(1)),
-        projects: Math.round(15 * eased),
-      });
-      if (progress < 1) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [isInView]);
+  const highlights = [
+    { label: 'Experience', value: '1.5+ years' },
+    { label: 'Focus', value: 'Production-grade delivery' },
+  ];
 
   return (
     <motion.section ref={ref} id="about" className="section" style={{ scale, opacity }}>
@@ -44,12 +25,12 @@ export const About = () => {
         >
           <div className="space-y-6">
             <p className="eyebrow">About</p>
-            <h2 className="heading">Deliberate craft, measurable impact.</h2>
+            <h2 className="heading">Production-grade delivery, clean architecture.</h2>
             {[
               'Full-Stack Developer',
-              "I build scalable, production-ready applications — from dynamic React frontends to performant Node.js backends and real-time systems. With 1.5+ years shipping live projects (including internships, freelance, and open-source), I've delivered 15+ high-quality solutions that solve problems and drive results.",
-              'Currently at Meru Technosoft, I ship clean, maintainable code focused on performance, microservices, AWS cloud deployment, and real-time features (Socket.IO + modern stacks like Prisma, PostgreSQL, React Query).',
-              'Passionate about turning complex challenges into elegant, efficient systems.',
+              'Delivering live, production-grade applications with scalable architecture and optimized performance.',
+              'Experience across professional, freelance, and open-source work with a focus on clean system design.',
+              'Driven to translate complex ideas into reliable, user-focused products.',
             ].map((line, index) => (
               <motion.p
                 key={line}
@@ -62,10 +43,7 @@ export const About = () => {
               </motion.p>
             ))}
             <div className="grid gap-6 sm:grid-cols-2">
-              {[
-                { label: 'Years', value: `${stats.years}+` },
-                { label: 'Projects', value: `${stats.projects}+` },
-              ].map((item) => (
+              {highlights.map((item) => (
                 <div key={item.label} className="glass-panel rounded-2xl px-5 py-4">
                   <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{item.label}</p>
                   <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
@@ -80,15 +58,15 @@ export const About = () => {
             animate={isInView ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="glass-panel relative min-h-[520px] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.45)]">
+            <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.45)]">
               <div className="absolute -right-20 -top-16 h-56 w-56 rounded-full bg-indigo-500/20 blur-3xl" />
               <div className="absolute -bottom-28 -left-10 h-64 w-64 rounded-full bg-sky-400/20 blur-3xl" />
               <div className="relative flex h-full flex-col justify-between gap-8">
                 <div>
                   <p className="eyebrow">Profile</p>
-                  <p className="mt-4 text-2xl font-semibold text-white">Design-minded engineering</p>
+                  <p className="mt-4 text-2xl font-semibold text-white">Engineering with clarity</p>
                   <p className="mt-3 text-sm text-slate-300">
-                    Building premium digital experiences with a focus on clarity, motion, and system-level detail.
+                    Focused on scalable systems, reliable performance, and maintainable codebases.
                   </p>
                   <div className="mt-8 flex justify-center">
                     <div className="relative">
@@ -102,7 +80,7 @@ export const About = () => {
                   </div>
                 </div>
                 <div className="text-sm text-slate-400">
-                  Based in India • Open to global collaboration
+                  Based in India • Open to freelance and full-time roles
                 </div>
               </div>
             </div>

@@ -25,14 +25,18 @@
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow: auto;
+    background-color: #0b0f1a;
   }
 
   body {
     @apply bg-slate-950 text-slate-100;
+    background-color: #0b0f1a;
     min-width: 320px;
-    min-height: 100vh;
     letter-spacing: 0.01em;
-    overflow-x: hidden;
+    overflow: visible;
+    width: 100%;
   }
 
   a {
@@ -43,6 +47,26 @@
   ::selection {
     background: rgba(148, 163, 184, 0.25);
   }
+}
+
+/* Dark scrollbar track to avoid a light gutter on the right. */
+* {
+  scrollbar-color: rgba(148, 163, 184, 0.5) #0b0f1a;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 999px;
+  border: 2px solid #0b0f1a;
 }
 
 @layer components {

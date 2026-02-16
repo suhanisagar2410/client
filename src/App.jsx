@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div className="site-background min-h-screen overflow-x-hidden text-slate-100">
+    <div className="site-background text-slate-100">
       <div className="grain-overlay fixed inset-0 opacity-40" />
       <AnimatePresence>
         {isLoading && (

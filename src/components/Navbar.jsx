@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { NAV_LINKS } from '../utils/constants';
@@ -7,8 +7,12 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const activeSectionRef = useRef('');
 
   useEffect(() => {
+    // Close mobile menu on page load
+    setMobileMenuOpen(false);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -18,13 +22,18 @@ export const Navbar = () => {
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
+            if (activeSectionRef.current !== section) {
+              activeSectionRef.current = section;
+              setActiveSection(section);
+              window.history.replaceState(null, '', `#${section}`);
+            }
             break;
           }
         }
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

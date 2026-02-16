@@ -53,9 +53,9 @@ export const Contact = () => {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="eyebrow">Contact</p>
-          <h2 className="heading mt-4">Let’s build something remarkable.</h2>
+          <h2 className="heading mt-4">Let's connect.</h2>
           <p className="subheading mt-3 max-w-2xl">
-            Tell me about your product, timeline, and the impact you’re after.
+            Share your product goals, timeline, and how I can help deliver impact.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-300">
@@ -67,7 +67,7 @@ export const Contact = () => {
               LinkedIn
             </a>
             <span className="text-slate-600">•</span>
-            <a href={SOCIAL_LINKS.github || '#'} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="hover:text-white">
               GitHub
             </a>
           </div>

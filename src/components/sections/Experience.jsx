@@ -10,9 +10,9 @@ export const Experience = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
 
   const education = {
-    degree: "Bachelor's of Computer Engineering",
-    institution: 'Swarrnim Startup And Innovation University',
-    period: 'Sep 2021 - Oct 2025',
+    degree: 'MERN Stack capstone project',
+    institution: 'Swarrnim Startup & Innovations University',
+    period: 'Graduated May 2025',
   };
 
   return (
