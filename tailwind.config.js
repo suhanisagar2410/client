@@ -8,34 +8,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          light: '#60A5FA',
-          DEFAULT: '#3B82F6',
-          dark: '#2563EB',
-        },
-        secondary: {
-          light: '#F472B6',
-          DEFAULT: '#EC4899',
-          dark: '#DB2777',
-        },
+        primary: '#0A0E27',
+        secondary: '#6C63FF',
+        accent: '#00F5FF',
+        highlight: '#FF6B9D',
+        text: '#E4E4E7',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
+        'gradient': 'gradient 8s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        gradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(0, 245, 255, 0.3)' },
+          '50%': { opacity: '0.8', boxShadow: '0 0 40px rgba(0, 245, 255, 0.6)' },
         },
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [],
 } 
