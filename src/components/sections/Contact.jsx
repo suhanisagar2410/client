@@ -37,7 +37,16 @@ export const Contact = () => {
       }
     } catch (error) {
       console.error('Contact form error:', error);
-      setStatus({ type: 'error', message: 'Something went wrong. Please email me directly.' });
+      
+      // Extract specific error message if it's a validation error
+      let errorMessage = 'Something went wrong. Please email me directly.';
+      if (error.errors && error.errors.length > 0) {
+        errorMessage = error.errors[0].msg;
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
+      setStatus({ type: 'error', message: errorMessage });
     } finally {
       setLoading(false);
     }
