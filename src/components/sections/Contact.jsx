@@ -83,7 +83,7 @@ export const Contact = () => {
 
           <motion.form
             onSubmit={handleSubmit}
-            className="glass-panel mt-10 w-full rounded-3xl p-8 text-left md:p-10"
+            className="glass-panel mt-10 w-full rounded-3xl p-6 text-left md:p-10"
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}

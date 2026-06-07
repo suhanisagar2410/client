@@ -26,7 +26,7 @@
   html {
     scroll-behavior: smooth;
     width: 100%;
-    overflow: auto;
+    overflow-x: hidden;
     background-color: #0b0f1a;
   }
 
@@ -35,7 +35,7 @@
     background-color: #0b0f1a;
     min-width: 320px;
     letter-spacing: 0.01em;
-    overflow: visible;
+    overflow-x: hidden;
     width: 100%;
   }
 

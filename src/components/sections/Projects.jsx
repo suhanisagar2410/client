@@ -33,7 +33,7 @@ export const Projects = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <TiltCard className="glass-panel relative overflow-hidden rounded-3xl p-10" maxTilt={10}>
+            <TiltCard className="glass-panel relative overflow-hidden rounded-3xl p-6 md:p-10" maxTilt={10}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-70" />
               <div className="relative z-10 space-y-6">
                 <p className="eyebrow">Production impact</p>
@@ -152,7 +152,7 @@ export const Projects = () => {
             onClick={() => setActiveProject(null)}
           >
             <motion.div
-              className="glass-panel relative max-w-3xl rounded-3xl p-10"
+              className="glass-panel relative w-[95%] max-w-3xl rounded-3xl p-6 md:p-10"
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.98, opacity: 0, y: 20 }}
